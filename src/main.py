@@ -1,13 +1,21 @@
 import vectors
-
-options = ["Vector addition", "Vector subtraction", "Vector Scaling", "Vector Multiplication", "Vector Magnitude", "Dot Product", "Dot Product (Self)", "Cross Product", "Angle"]
-functions = ["vectors.add_vectors()", "vectors.subtract_vectors()", "vectors.scale_vector()", " " , "vectors.modulus()", "vectors.dot_product()", "vectors.dot_product_self()", " ", "vectors.angle()"]
+options = { "Vector addition": "add_vectors()", 
+            "Vector subtraction": "subtract_vectors()", 
+            "Vector Scaling": "scale_vector()", 
+            "Vector Multiplication": "Nothing here", 
+            "Vector Magnitude": "modulus()", 
+            "Dot Product": "dot_product()", 
+            "Dot Product (Self)": "dot_product_self()", 
+            "Cross Product": "Nothing here", 
+            "Angle": "angle()"}
 
 def masterprogram():
-    print("Choose an option:")
-    for option in range(len(options)): print(str(option + 1) + '. ' + options[option])
+    print("Choose an option:"); i = 1
+    for option in options:
+        print(str(i) + '. ' + option); i += 1
     option = int(input("Option: ")) - 1
-    print(eval(functions[option]), 2)
+    options_list = list(options)
+    print(eval(f"vectors.{options[options_list[option]]}"))
     return
 
 if __name__ == "__main__":
